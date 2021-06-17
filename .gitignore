@@ -130,3 +130,6 @@ dmypy.json
 
 # Visual Studio Code
 .vscode
+
+# Auto PY to EXE: https://pypi.org/project/auto-py-to-exe/
+auto_py_to_exe/
