@@ -14,7 +14,7 @@ def GUI():
                 [pg.Multiline(key='paper',size=(115,25))]
              ]
 
-    window = pg.Window('Build tree', layout, icon='graphicloads-folded-tree-folded (httpsru.seaicons.com_71661).ico')
+    window = pg.Window('Build tree', layout, icon='tree.ico') # source: https://ru.seaicons.com/71661/
 
     counter_of_results = 1
 
