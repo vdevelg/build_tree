@@ -43,19 +43,25 @@ def get_tree(path, depth):
 def print_tree(tree, counter=0):
     """ Печатает дерево из формата ({dir_name: ({...},[]), ...}, [file_name, ...])
     """
+    string = ''
     indent = 4 * ' ' * counter
-    for name_dir in tree[0]:
-        print(indent, name_dir, sep='')
-        print_tree(tree[0][name_dir], counter + 1)
-    for name_file in tree[1]:
-        print(indent, name_file, sep='')
+    if tree is not None:
+        for name_dir in tree[0]:
+            string = ''.join([string, indent, name_dir, '\n'])
+            # print(indent, name_dir, sep='')
+            string = ''.join([string, print_tree(tree[0][name_dir], counter + 1)])
+        for name_file in tree[1]:
+            string = ''.join([string, indent, name_file, '\n'])
+            # print(indent, name_file, sep='')
+    return string
 
 
 def main():
     cur_path = os.getcwd()
-    depth = 6
+    depth = 3
     tree = get_tree(cur_path, depth)
-    print_tree(tree)
+    string = print_tree(tree)
+    print(string)
 
 
 if __name__ == '__main__':
