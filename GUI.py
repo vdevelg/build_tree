@@ -14,9 +14,9 @@ def GUI():
                 [pg.Multiline(key='paper',size=(115,25))]
              ]
 
-    window = pg.Window('Build tree', layout)
+    window = pg.Window('Build tree', layout, icon='graphicloads-folded-tree-folded (httpsru.seaicons.com_71661).ico')
 
-    counter = 1
+    counter_of_results = 1
 
     while True:
         event, values = window.read()
@@ -26,11 +26,14 @@ def GUI():
             cur_path = values['path_to_folder']
             depth = values['depth']
             tree = bt.get_tree(cur_path, depth)
-            print(tree)
+
             Mtext = bt.print_tree(tree)
-            
-            Mtext = ''.join(['Result ', str(counter), '\n--------------------------------------\n', Mtext, '--------------------------------------\n'])
-            counter += 1
+            Mtext = ''.join(['Result ', str(counter_of_results), 
+                            '\n----------------------------------------------------------------------------------------------------\n', 
+                            Mtext, 
+                            '--------------------------------------------------\n'])
+            counter_of_results += 1
+
             window['paper'].print(Mtext)
 
     window.close()
